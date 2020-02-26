@@ -1,0 +1,44 @@
+------TLE------------------
+class Solution {
+public:
+    string reverseOnlyLetters(string S) {
+        char arr[S.length()];
+        for (int i=0;i<sizeof(arr);++i){
+            arr[i]=S[i];
+        }
+        int i=0;
+        int j=S.length()-1;
+        while(i<j){
+            if(i<j && !isalpha(arr[i])){
+                i++;
+            }
+            if(j<i && !isalpha(arr[j])){
+                j--;
+            }
+            char temp=arr[i];
+            arr[i]=arr[j];
+            arr[j]=temp;
+        }
+        return arr;
+    }
+};
+-------------------------------------------------------------------
+class Solution {
+public:
+    string reverseOnlyLetters(string S) {
+        int i = 0, j = S.length() - 1;
+        
+        while (i < j) {
+            if (isalpha(S[i]) && isalpha(S[j])) {
+                swap(S[i++], S[j--]);
+                continue;
+            }
+            if (!isalpha(S[i]))
+                i++;
+            if (!isalpha(S[j]))
+                j--;
+        }
+        
+        return S;
+    }
+};
