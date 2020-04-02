@@ -9,3 +9,14 @@ public:
         return res;
     }
 };
+-------------------Python solution-------------------
+class Solution(object):
+    def singleNumber(self, nums):
+        dup_list=[]
+        
+        for i in nums:
+            if i not in dup_list:
+                dup_list.append(i)
+            else:
+                dup_list.remove(i)
+        return dup_list.pop()
