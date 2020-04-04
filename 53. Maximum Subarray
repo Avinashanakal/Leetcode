@@ -8,3 +8,15 @@ class Solution:
             max_sum=max(max_sum,total_sum)
             
         return max_sum
+------------------------------------C++ DP solution----------------------
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int max_end=nums[0],max_so=nums[0];
+        for(int i=1;i<nums.size();++i){
+            max_end=max(nums[i],max_end+nums[i]);
+            max_so=max(max_so,max_end);
+        }
+        return max_so;
+    }
+};
