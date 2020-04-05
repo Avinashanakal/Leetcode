@@ -1,0 +1,21 @@
+class Solution(object):
+    def hammingDistance(self, x, y):
+        m = x ^ y
+        n = 0
+        while(m):
+            n += 1
+            m &= m -1
+        return n
+------------------------c++ solution--------------------------
+class Solution {
+public:
+    int hammingDistance(int x, int y) {
+        int d=0;
+        int n=x^y;
+        while(n){
+            ++d;
+            n&=n-1;
+        }
+        return d;
+    }
+};
